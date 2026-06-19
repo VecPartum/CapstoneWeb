@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS posts (
 
 -- Insert sample admin user (password: admin123)
 INSERT INTO users (username, email, password_hash, avatar) 
-VALUES ('A4th Team', 'admin@a4th.dev', '$2y$10$vHOXtkynzTs7SXAsu6WZe.jqtDCF2kLG5la4FImbQXZB2dNh001qi', '🌿')
+VALUES ('A4th Team', 'admin@a4th.dev', '$2y$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcg7b3XeKeUxWdeS86E36P4/KFm', '🌿')
 ON DUPLICATE KEY UPDATE id=id;
 
 -- Insert sample threads
