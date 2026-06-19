@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A4th — Coexistence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-logo" onclick="navigate('home')">🌿 A4th</button>
+    <div class="nav-links">
+      <button class="nav-btn" id="nav-game"   onclick="navigate('game')">The Game</button>
+      <button class="nav-btn" id="nav-forums" onclick="navigate('forums')">Forums</button>
+      <button class="nav-btn" id="nav-about"  onclick="navigate('about')">About Us</button>
+      <button class="nav-btn nav-login" id="nav-login" onclick="navigate('login')">🗡️ Log In</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <div class="home-hero">
+    <div class="bg"></div>
+    <div class="overlay"></div>
+    <div class="bottom-fade"></div>
+    <div class="home-content">
+      <div class="badge">🌱 A4th Studios</div>
+      <h1 class="home-title">Coexistence</h1>
+      <p class="home-sub">An action adventure RPG where ancient nature spirits, fallen ecosystems, and the will of one boy decide the world's fate.</p>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="navigate('game')">🗡️ Discover the Game</button>
+        <button class="btn-secondary" onclick="navigate('about')">🧑‍🤝‍🧑 Meet the Team</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GAME PAGE -->
+<div class="page" id="page-game">
+  <div class="page-hero">
+    <div class="bg" style="background-image: url('Menu_coex.jpg');"></div>
+    <div class="overlay"></div>
+    <div class="page-hero-content">
+      <span class="badge">⚔️ Action RPG</span>
+      <h1 class="page-hero-title">Coexistence</h1>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="two-col">
+      <div>
+        <h2 class="section-title">The Story</h2>
+        <p class="body-text">Coexistence is an action story-driven RPG set in a world where humanity has been punished for its destruction of the natural world. To seek redemption, and restore the world, you must embark on a journey to heal the land and reconnect with the spirits of nature.</p>
+        <p class="body-text">Inspired by classic action-adventures like The Legend of Zelda and Ōkami, we set out to craft a world that feels alive, magical, and worth saving. Every region you restore blooms back to color. Every spirit you free has a story to tell.</p>
+      </div>
+      <div class="img-card">
+        <img src="intro lore.jpg" alt="Creation of the World" />
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line left"></div><span>🌸</span><div class="divider-line right"></div></div>
+
+    <h2 class="section-title centered">Themes &amp; Inspirations</h2>
+    <div class="tags">
+      <span class="tag">🌱 Environmentalism</span>
+      <span class="tag">⚖️ Moral Choices</span>
+      <span class="tag">🦊 Nature Spirits</span>
+      <span class="tag">🏞️ Ecosystem Restoration</span>
+      <span class="tag">💛 Friendship &amp; Community</span>
+      <span class="tag">🎨 Painterly World</span>
+      <span class="tag">🎮 Classic Adventure</span>
+      <span class="tag">🌸 Japanese Aesthetics</span>
+    </div>
+
+    <div class="divider"><div class="divider-line left"></div><span>🌿</span><div class="divider-line right"></div></div>
+
+    <h2 class="section-title centered">What to Expect</h2>
+    <div class="feature-grid">
+      <div class="feature-card red">
+        <div class="feature-icon">⚔️</div>
+        <h3 class="feature-title">Action Combat</h3>
+        <p class="feature-text">Fast, expressive combat inspired by classic action-adventures.</p>
+      </div>
+      <div class="feature-card gold">
+        <div class="feature-icon">📖</div>
+        <h3 class="feature-title">Rich Narrative</h3>
+        <p class="feature-text">A heartfelt story full of memorable characters, moral choices, and consequences that shape the world around you.</p>
+      </div>
+      <div class="feature-card green">
+        <div class="feature-icon">🌿</div>
+        <h3 class="feature-title">New World</h3>
+        <p class="feature-text">Restore corrupted lands, befriend spirits of nature, and watch the world bloom or wither based on your journey.</p>
+      </div>
+      <div class="feature-card blue">
+        <div class="feature-icon">🤝</div>
+        <h3 class="feature-title">Coexist</h3>
+        <p class="feature-text">Work together with spirits of the land to restore balance and uncover the truth behind the world's decline. None of you can do it alone.</p>
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line left"></div><span>✨</span><div class="divider-line right"></div></div>
+
+    <h2 class="section-title centered">The World</h2>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1758377270601-6e1e762dc324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="Vibrant surreal forest path" />
+        <div class="gallery-label">🌲 Ancient Groves</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1775572272629-ffbb054caad6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="Cherry blossoms" />
+        <div class="gallery-label">🌸 Spirit Shrines</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1775491276610-f03a78a01634?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600" alt="Sunlit forest path" />
+        <div class="gallery-label">✨ Sacred Paths</div>
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line left"></div><span>⬇️</span><div class="divider-line right"></div></div>
+
+    <div class="download-section">
+      <h2 class="section-title centered">Ready to Play?</h2>
+      <button class="btn-primary" onclick="navigate('download')">📥 Download the Game</button>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div class="page" id="page-about">
+  <div class="page-hero">
+    <div class="bg" style="background-image: url('GroupPic.jpg'); background-position: center 40%;"></div>
+    <div class="overlay"></div>
+    <div class="page-hero-content">
+      <span class="badge">🌿 Student Game Dev Team</span>
+      <h1 class="page-hero-title">About A4th</h1>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="about-grid">
+      <div>
+        <h2 class="section-title">Who We Are</h2>
+        <p class="body-text">A4th is a team of 4 students making our original game as our capstone project. We were inspired by classic "retro" action-adventure games.</p>
+        <p class="body-text">Coexistence is the culmination of our shared vision to create our first game aligned with United Nations' SDG 15 (Life on Land).</p>
+        <p class="body-text">We're learning as we go, and we're proud of what we're making together.</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-card-title">📋 Team At a Glance</p>
+        <ul class="stat-list">
+          <li class="stat-item"><span class="stat-label">Team Name</span><span class="stat-value">A4th</span></li>
+          <li class="stat-item"><span class="stat-label">Team Size</span><span class="stat-value">4 Members</span></li>
+          <li class="stat-item"><span class="stat-label">Project Type</span><span class="stat-value">Student Project</span></li>
+          <li class="stat-item"><span class="stat-label">Genre</span><span class="stat-value">Action RPG</span></li>
+          <li class="stat-item"><span class="stat-label">Inspired By</span><span class="stat-value">Zelda · Ōkami</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line left"></div><span>🍃</span><div class="divider-line right"></div></div>
+
+    <h2 class="section-title centered">The Team</h2>
+    <div class="team-grid">
+      <div class="member-card red">
+        <div class="member-photo red">
+          <img src="https://ui-avatars.com/api/?name=Johanne+Tristan&background=c44428&color=fff&size=200&bold=true" alt="Johanne Tristan R. Malic" />
+        </div>
+        <div>
+          <h3 class="member-name">Johanne Tristan R. Malic</h3>
+          <p class="member-role" style="color:#c44428;">Project Manager/Narrative Designer</p>
+          <p class="member-bio">Created the game's narrative framework and managed the project timeline.</p>
+        </div>
+      </div>
+      <div class="member-card gold">
+        <div class="member-photo gold">
+          <img src="https://ui-avatars.com/api/?name=Marco+Andrei&background=c8881a&color=fff&size=200&bold=true" alt="Marco Andrei L. Aydalla" />
+        </div>
+        <div>
+          <h3 class="member-name">Marco Andrei L. Aydalla</h3>
+          <p class="member-role" style="color:#c8881a;">3D Modeling & Animation</p>
+          <p class="member-bio">Creates the 3D assets and animations that bring the game world to life.</p>
+        </div>
+      </div>
+      <div class="member-card blue">
+        <div class="member-photo blue">
+          <img src="https://ui-avatars.com/api/?name=John+Benedict&background=4a7aa0&color=fff&size=200&bold=true" alt="John Benedict V. Miranda" />
+        </div>
+        <div>
+          <h3 class="member-name">John Benedict V. Miranda</h3>
+          <p class="member-role" style="color:#4a7aa0;">Programming/Game Designer</p>
+          <p class="member-bio">Builds the systems and engine foundations that make the game world feel alive and responsive.</p>
+        </div>
+      </div>
+      <div class="member-card green">
+        <div class="member-photo green">
+          <img src="https://ui-avatars.com/api/?name=Karlos+Czar&background=5a8a2e&color=fff&size=200&bold=true" alt="Karlos C'zar L. Caalim" />
+        </div>
+        <div>
+          <h3 class="member-name">Karlos C'zar L. Caalim</h3>
+          <p class="member-role" style="color:#5a8a2e;">Art &amp; Visual Design</p>
+          <p class="member-bio">Designs the visual elements and aesthetic direction of the game.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line left"></div><span>🌻</span><div class="divider-line right"></div></div>
+
+    <div class="contact-strip">
+      <div>
+        <h3 class="contact-title">Say Hello 👋</h3>
+        <p class="contact-sub">Curious about the project? We'd love to connect!</p>
+      </div>
+      <div class="contact-btns">
+        <a href="mailto:hello@a4th.dev" class="btn-green">✉️ Email Us</a>
+        <!-- <a href="#" class="btn-ghost">🐙 GitHub</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORUMS PAGE -->
+<div class="page" id="page-forums">
+  <div class="forums-header">
+    <div class="forums-bg"></div>
+    <span style="font-size:3rem;">💬</span>
+    <h1 class="forums-title">Community Forums</h1>
+    <p class="forums-sub">Discuss the game, and connect with others</p>
+  </div>
+  <div class="page-body">
+    <div class="forums-toolbar">
+      <input type="text" id="forum-search" placeholder="🔍  Search threads..." oninput="filterThreads()" class="forum-search" />
+      <button class="btn-primary small" onclick="postNewThread()">✏️ New Thread</button>
+    </div>
+    <div class="category-pills">
+      <button class="cat-pill active" onclick="setCategory(this, 'All')">All</button>
+      <button class="cat-pill" onclick="setCategory(this, 'General')">General</button>
+      <button class="cat-pill" onclick="setCategory(this, 'Game Discussion')">Game Discussion</button>
+      <button class="cat-pill" onclick="setCategory(this, 'Lore & Story')">Lore &amp; Story</button>
+      <button class="cat-pill" onclick="setCategory(this, 'Fan Art')">Fan Art</button>
+      <button class="cat-pill" onclick="setCategory(this, 'Dev Updates')">Dev Updates</button>
+    </div>
+    <p class="threads-label">📌 Pinned</p>
+    <div id="pinned-threads"></div>
+    <p class="threads-label">💬 Threads</p>
+    <div id="regular-threads"></div>
+  </div>
+</div>
+
+<!-- LOGIN PAGE -->
+<div class="page" id="page-login">
+  <div class="login-wrap">
+    <div class="login-bg"></div>
+    <div class="login-inner">
+      <div class="login-logo">
+        <span style="font-size:3rem;">🌿</span>
+        <h1 class="login-title">A4th</h1>
+        <p class="login-sub" id="login-sub">Welcome back</p>
+      </div>
+      <div class="login-card">
+        <div class="mode-toggle">
+          <button class="mode-btn active" id="btn-login" onclick="setMode('login')">🗡️ Log In</button>
+          <button class="mode-btn" id="btn-signup" onclick="setMode('signup')">🌱 Sign Up</button>
+        </div>
+        <div id="login-success" class="success-banner" style="display:none;">
+          ✅ <span id="success-msg"></span>
+        </div>
+        <form id="auth-form" onsubmit="handleSubmit(event)">
+          <div id="field-username" class="field" style="display:none;">
+            <label class="field-label">Username</label>
+            <input type="text" placeholder="YourHeroName" class="field-input" />
+          </div>
+          <div class="field">
+            <label class="field-label">Email</label>
+            <input type="email" placeholder="hero@example.com" class="field-input" />
+          </div>
+          <div class="field">
+            <label class="field-label">Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="pw-input" placeholder="••••••••" class="field-input" />
+              <button type="button" class="pw-toggle" onclick="togglePw()">👁</button>
+            </div>
+          </div>
+          <div id="field-confirm" class="field" style="display:none;">
+            <label class="field-label">Confirm Password</label>
+            <input type="password" placeholder="••••••••" class="field-input" />
+          </div>
+          <button type="submit" class="btn-primary full" id="submit-btn">⚔️ Enter the World</button>
+        </form>
+        <p class="switch-text">
+          <span id="switch-label">No account yet?</span>
+          <button class="switch-btn" id="switch-btn" onclick="toggleMode()">Sign up</button>
+        </p>
+      </div>
+      <!-- <p class="demo-note">— This is a demo UI. No data is stored. —</p> -->
+    </div>
+  </div>
+</div>
+
+<!-- DOWNLOAD PAGE -->
+<div class="page" id="page-download">
+  <div class="page-hero">
+    <div class="bg" style="background-image: url('Menu_coex.jpg');"></div>
+    <div class="overlay"></div>
+    <div class="page-hero-content">
+      <span class="badge">📥 Get Started</span>
+      <h1 class="page-hero-title">Download [Your Game Title]</h1>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="download-container">
+      <h2 class="section-title centered">Available Platforms</h2>
+      <div class="download-grid">
+        <div class="download-card">
+          <div class="download-icon">🟦</div>
+          <h3>Windows</h3>
+          <p class="download-spec">Windows 10 64-bit or later</p>
+          <a href="your-game-download-link-windows" class="btn-primary" download>⬇️ Download</a>
+        </div>
+        <!-- <div class="download-card">
+          <div class="download-icon">🍎</div>
+          <h3>macOS</h3>
+          <p class="download-spec">macOS 10.14 or later</p>
+          <a href="your-game-download-link-mac" class="btn-primary" download>⬇️ Download</a>
+        </div> -->
+        <!-- <div class="download-card">
+          <div class="download-icon">🐧</div>
+          <h3>Linux</h3>
+          <p class="download-spec">Ubuntu 18.04 or later</p>
+          <a href="your-game-download-link-linux" class="btn-primary" download>⬇️ Download</a>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="divider"><div class="divider-line left"></div><span>❓</span><div class="divider-line right"></div></div>
+
+    <h2 class="section-title centered">System Requirements</h2>
+    <div class="requirements-box">
+      <div>
+        <h3 style="color: var(--green);">Minimum Requirements</h3>
+        <ul class="requirement-list">
+          <li>OS: Windows 10</li>
+          <li>Processor: Intel i5 / equivalent</li>
+          <li>Memory: 4 GB RAM</li>
+          <li>Storage: 2 GB available space</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
