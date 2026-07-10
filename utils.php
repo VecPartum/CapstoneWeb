@@ -48,13 +48,39 @@ function verifyToken($token) {
 
 // Get authorization token from header
 function getAuthToken() {
-    $headers = getallheaders();
-    if (isset($headers['Authorization'])) {
+    // Try getallheaders() first (if available)
+    if (function_exists('getallheaders')) {
+        $headers = getallheaders();
+        if (isset($headers['Authorization'])) {
+            $matches = [];
+            if (preg_match('/Bearer (.+)/', $headers['Authorization'], $matches)) {
+                return $matches[1];
+            }
+        }
+    }
+    
+    // Fallback 1: Check HTTP_AUTHORIZATION
+    if (isset($_SERVER['HTTP_AUTHORIZATION'])) {
         $matches = [];
-        if (preg_match('/Bearer (.+)/', $headers['Authorization'], $matches)) {
+        if (preg_match('/Bearer (.+)/', $_SERVER['HTTP_AUTHORIZATION'], $matches)) {
             return $matches[1];
         }
     }
+    
+    // Fallback 2: Check REDIRECT_HTTP_AUTHORIZATION (for some servers)
+    if (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION'])) {
+        $matches = [];
+        if (preg_match('/Bearer (.+)/', $_SERVER['REDIRECT_HTTP_AUTHORIZATION'], $matches)) {
+            return $matches[1];
+        }
+    }
+    
+    // Fallback 3: Check if it's in the request body (as backup for shared hosting)
+    $input = json_decode(file_get_contents('php://input'), true);
+    if (isset($input['token'])) {
+        return $input['token'];
+    }
+    
     return null;
 }
 

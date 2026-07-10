@@ -1,12 +1,12 @@
 <?php
 // Database Configuration
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'a4th_forum');
+define('DB_USER', 'if0_42224674');
+define('DB_PASS', 'Dv9fASRE7oa7n');
+define('DB_NAME', 'if0_42224674_a4th_forum');
 
 // Secret key for JWT tokens (change this in production!)
-define('JWT_SECRET', 'your-secret-key-change-in-production');
+define('JWT_SECRET', 'e7716d968a67da40b75415ef67b971fe37f6e1a8d22afcdc7f62bfdfe5dc0c5f');
 
 // Enable error reporting (disable in production)
 ini_set('display_errors', 1);

@@ -233,7 +233,7 @@
   <div class="page-body">
     <div class="forums-toolbar">
       <input type="text" id="forum-search" placeholder="🔍  Search threads..." oninput="filterThreads()" class="forum-search" />
-      <button class="btn-primary small" onclick="postNewThread()">✏️ New Thread</button>
+      <button class="btn-primary small" onclick="openThreadComposer()">✏️ New Thread</button>
     </div>
     <div class="category-pills">
       <button class="cat-pill active" onclick="setCategory(this, 'All')">All</button>
@@ -247,6 +247,67 @@
     <div id="pinned-threads"></div>
     <p class="threads-label">💬 Threads</p>
     <div id="regular-threads"></div>
+  </div>
+</div>
+
+<div class="composer-modal" id="thread-composer" aria-hidden="true">
+  <div class="composer-backdrop" onclick="closeThreadComposer()"></div>
+  <div class="composer-panel" role="dialog" aria-modal="true" aria-labelledby="composer-title">
+    <div class="composer-header">
+      <div>
+        <span class="badge">✏️ New Thread</span>
+        <h2 class="composer-title" id="composer-title">Create a new topic</h2>
+        <p class="composer-sub">Share a discussion that feels at home in the forum.</p>
+      </div>
+      <button type="button" class="composer-close" onclick="closeThreadComposer()" aria-label="Close composer">✕</button>
+    </div>
+
+    <form id="thread-composer-form" class="composer-form" onsubmit="submitThreadComposer(event)">
+      <div class="field">
+        <label class="field-label" for="thread-title">Thread Title</label>
+        <input type="text" id="thread-title" class="field-input" placeholder="What do you want to discuss?" maxlength="120" required />
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="thread-category">Category</label>
+        <select id="thread-category" class="field-input composer-select" required>
+          <option value="">Choose a category</option>
+          <option value="General">General</option>
+          <option value="Game Discussion">Game Discussion</option>
+          <option value="Lore & Story">Lore & Story</option>
+          <option value="Fan Art">Fan Art</option>
+          <option value="Dev Updates">Dev Updates</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="thread-preview">Preview / First Post</label>
+        <textarea id="thread-preview" class="field-input composer-textarea" rows="6" placeholder="Write a short preview for the thread..." maxlength="500" required></textarea>
+      </div>
+
+      <p class="composer-note">This will appear as the thread preview in the forum list.</p>
+
+      <div class="composer-actions">
+        <button type="button" class="btn-secondary" onclick="closeThreadComposer()">Cancel</button>
+        <button type="submit" class="btn-primary">Publish Thread</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="notice-modal" id="notice-modal" aria-hidden="true">
+  <div class="notice-backdrop" onclick="closeNotice()"></div>
+  <div class="notice-panel" role="alertdialog" aria-modal="true" aria-labelledby="notice-title">
+    <div class="notice-header">
+      <div class="notice-icon" id="notice-icon">ℹ️</div>
+      <div>
+        <h3 class="notice-title" id="notice-title">Notice</h3>
+        <p class="notice-message" id="notice-message"></p>
+      </div>
+    </div>
+    <div class="notice-actions">
+      <button type="button" class="btn-primary small" onclick="closeNotice()">Okay</button>
+    </div>
   </div>
 </div>
 

@@ -15,8 +15,8 @@
 - ✅ `script.js` — Now uses `fetch()` to call PHP endpoints
   - `handleSubmit()` → POSTs to `/register.php` or `/login.php`
   - `renderThreads()` → Fetches from `/get_threads.php`
-  - `postNewThread()` → POSTs to `/post_thread.php` with auth token
-- ✅ `index.html` — Fixed stylesheet path, wired New Thread button
+  - `submitThreadComposer()` → POSTs to `/post_thread.php` with auth token
+- ✅ `index.html` — Fixed stylesheet path, wired New Thread button to the composer modal
 - ✅ Added JWT token storage in browser localStorage
 
 ### Documentation:
@@ -97,7 +97,7 @@ User visits forums → renderThreads() → Fetch from get_threads.php
 
 ### Post Thread Flow:
 ```
-User clicks "New Thread" → Prompts for input → postNewThread()
+User clicks "New Thread" → Composer modal opens → submitThreadComposer()
 → POST with JWT token → post_thread.php verifies auth
 → Creates in MySQL → Refreshes thread list
 ```

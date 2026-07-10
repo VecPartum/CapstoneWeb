@@ -157,6 +157,174 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba
 .no-threads { text-align: center; padding: 60px 0; color: var(--brown); }
 .no-threads span { font-size: 3rem; display: block; margin-bottom: 12px; }
 
+.composer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.composer-modal.open {
+  display: flex;
+}
+
+.composer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 6, 2, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.composer-panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 680px);
+  max-height: min(90vh, 760px);
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(44, 24, 12, 0.98), rgba(30, 18, 8, 0.98));
+  border: 3px solid #7a5020;
+  border-radius: 24px;
+  box-shadow: 10px 10px 0 var(--brown-dk);
+  padding: 28px;
+}
+
+.composer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.composer-title {
+  color: #fff8e8;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  margin-top: 8px;
+}
+
+.composer-sub {
+  color: var(--text-mute);
+  margin-top: 6px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.composer-close {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(90,58,16,0.35);
+  border: 2px solid #7a5020;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.composer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.composer-select,
+.composer-textarea {
+  appearance: none;
+}
+
+.composer-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.composer-note {
+  color: var(--text-mute);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin-top: -4px;
+}
+
+.composer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.notice-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 310;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.notice-modal.open {
+  display: flex;
+}
+
+.notice-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 6, 2, 0.65);
+  backdrop-filter: blur(6px);
+}
+
+.notice-panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 460px);
+  background: linear-gradient(180deg, rgba(44, 24, 12, 0.98), rgba(30, 18, 8, 0.98));
+  border: 3px solid #7a5020;
+  border-radius: 22px;
+  box-shadow: 10px 10px 0 var(--brown-dk);
+  padding: 24px;
+}
+
+.notice-header {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.notice-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(200,136,26,0.18);
+  border: 2px solid rgba(200,136,26,0.45);
+}
+
+.notice-title {
+  color: #fff8e8;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.notice-message {
+  color: var(--text-dim);
+  line-height: 1.7;
+  font-size: 0.92rem;
+}
+
+.notice-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 22px;
+}
+
 /* LOGIN */
 .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 16px 48px; position: relative; }
 .login-bg { position: fixed; inset: 0; background-image: url('Menu_coex.jpg'); background-size: cover; background-position: center; opacity: 0.06; pointer-events: none; }

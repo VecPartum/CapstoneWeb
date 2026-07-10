@@ -12,6 +12,134 @@ const categoryClass = {
 
 let activeCategory = "All";
 
+let noticeCallback = null;
+
+function getNoticeModal() {
+  return document.getElementById("notice-modal");
+}
+
+function showNotice(message, options = {}) {
+  const modal = getNoticeModal();
+  if (!modal) return;
+
+  const title = document.getElementById("notice-title");
+  const body = document.getElementById("notice-message");
+  const icon = document.getElementById("notice-icon");
+
+  if (title) title.textContent = options.title || "Notice";
+  if (body) body.textContent = message;
+  if (icon) icon.textContent = options.icon || "ℹ️";
+
+  noticeCallback = typeof options.onClose === "function" ? options.onClose : null;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeNotice() {
+  const modal = getNoticeModal();
+  if (!modal) return;
+
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+
+  const callback = noticeCallback;
+  noticeCallback = null;
+  if (callback) callback();
+}
+
+function getThreadComposer() {
+  return document.getElementById("thread-composer");
+}
+
+function resetThreadComposer() {
+  const form = document.getElementById("thread-composer-form");
+  if (form) form.reset();
+}
+
+function openThreadComposer() {
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    showNotice("You must be logged in to post.", {
+      title: "Login Required",
+      icon: "🔒",
+      onClose: () => navigate("login")
+    });
+    return;
+  }
+
+  const composer = getThreadComposer();
+  if (!composer) return;
+
+  composer.classList.add("open");
+  composer.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  const titleInput = document.getElementById("thread-title");
+  if (titleInput) titleInput.focus();
+}
+
+function closeThreadComposer() {
+  const composer = getThreadComposer();
+  if (!composer) return;
+
+  composer.classList.remove("open");
+  composer.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  resetThreadComposer();
+}
+
+async function submitThreadComposer(event) {
+  event.preventDefault();
+
+  const title = document.getElementById("thread-title")?.value.trim();
+  const preview = document.getElementById("thread-preview")?.value.trim();
+  const category = document.getElementById("thread-category")?.value;
+  const token = localStorage.getItem("authToken");
+
+  if (!title || !preview || !category) return;
+
+  try {
+    const response = await fetch("post_thread.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({ title, preview, category, token })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      closeThreadComposer();
+      showNotice("Your thread was posted successfully.", {
+        title: "Posted",
+        icon: "✅"
+      });
+      renderThreads();
+    } else {
+      showNotice(data.message || "Failed to post thread.", {
+        title: "Post Failed",
+        icon: "⚠️"
+      });
+    }
+  } catch (error) {
+    console.error("Error posting thread:", error);
+    showNotice("Connection error.", {
+      title: "Network Error",
+      icon: "⚠️"
+    });
+  }
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeThreadComposer();
+    closeNotice();
+  }
+});
+
 async function renderThreads() {
   const search = document.getElementById("forum-search")?.value.toLowerCase() ?? "";
   
@@ -82,48 +210,6 @@ function navigate(page) {
   if (btn) btn.classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (page === "forums") renderThreads();
-}
-
-// ── NEW THREAD ──
-async function postNewThread() {
-  const title = prompt("Thread Title:");
-  if (!title) return;
-  
-  const preview = prompt("Preview/Description:");
-  if (!preview) return;
-  
-  const category = prompt("Category (Dev Updates, Lore & Story, Game Discussion, Fan Art, General):");
-  if (!category) return;
-  
-  const token = localStorage.getItem("authToken");
-  if (!token) {
-    alert("You must be logged in to post.");
-    navigate("login");
-    return;
-  }
-  
-  try {
-    const response = await fetch("post_thread.php", {
-      method: "POST",
-      headers: { 
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
-      body: JSON.stringify({ title, preview, category })
-    });
-    
-    const data = await response.json();
-    
-    if (response.ok) {
-      alert("Thread posted successfully!");
-      renderThreads();
-    } else {
-      alert(data.message || "Failed to post thread");
-    }
-  } catch (error) {
-    console.error("Error posting thread:", error);
-    alert("Connection error");
-  }
 }
 
 // ── LOGIN ──

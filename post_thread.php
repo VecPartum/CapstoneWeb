@@ -9,6 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // Verify authentication
 $token = getAuthToken();
+
+// If no token in header, check the request body
+if (!$token) {
+    $input = json_decode(file_get_contents('php://input'), true);
+    if (isset($input['token'])) {
+        $token = $input['token'];
+    }
+}
+
 $userPayload = verifyToken($token);
 
 if (!$userPayload) {
